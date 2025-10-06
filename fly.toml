@@ -1,29 +1,23 @@
-[env]
-  VmessUUID = "ace246c6-3908-4038-9b78-42667301a200"
-  SecretPATH = "/takt"
-  PASSWORD = "password"
-  ArgoJSON = ""
-  OVERRIDE_DEST = ""
-  BLOCK_QUIC_443 = "true"
-  WG_MTU = "1408"
-  CLASH_MODE = "rule"
-  NodeStatus_DSN = ""
+# fly.toml app configuration file generated for paas-vmess-trojan-argo-eeonfq on 2025-10-06T09:14:23Z
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
 
-[[services]]
+app = 'paas-vmess-trojan-argo-eeonfq'
+primary_region = 'fra'
+
+[build]
+
+[http_service]
   internal_port = 3000
-  protocol = "tcp"
+  force_https = true
+  auto_stop_machines = 'stop'
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ['app']
 
-  [[services.ports]]
-    handlers = ["http"]
-    port = 80
-    force_https = true
-
-  [[services.ports]]
-    handlers = ["tls", "http"]
-    port = 443
-
-  [[services.tcp_checks]]
-    grace_period = "120s"
-    interval = "15s"
-    restart_limit = 0
-    timeout = "2s"
+[[vm]]
+  memory = '1gb'
+  cpu_kind = 'shared'
+  cpus = 8
+  memory_mb = 8192
