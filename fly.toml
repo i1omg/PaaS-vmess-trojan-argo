@@ -1,6 +1,6 @@
 [env]
-  VmessUUID = "ad2c9acd-3afb-4fae-aff2-954c532020bd"
-  SecretPATH = "/mypath"
+  VmessUUID = "ace246c6-3908-4038-9b78-42667301a200"
+  SecretPATH = "/takt"
   PASSWORD = "password"
   ArgoJSON = ""
   OVERRIDE_DEST = ""
